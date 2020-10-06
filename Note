@@ -1,0 +1,78 @@
+### SYSTEM, CODE INSTALL SETUP
+
+
+## Linux 
+
+# Vim:
+# 1. Mark and command out multiple codes:
+#    (1) Ctrl V (2) Press up/down to choose the lines (3) Type mark (# or /) or press Delete (4) Press Esc*2
+#
+# Github:
+# 1. branch:
+#    (1) git branch   ----> Check the present branch
+#    (2) git branch -a   ----> List all branches, including remote branches
+#    (3) git checkout --track [branch_path]  ----> Switch to the branch
+# 2. clone:
+#    (1) git clone [code_website on github]   ----> Clone code from github.
+#
+# Manage files:
+# 1. file [file_name]   ----> Check the file-type
+# 2. rsync -avzhP -e 'ssh -p 50150' weinin@140.112.104.92:[file_path]   ----> cp the file from virtual machine to local computer
+# 3. grep -rnwl '.' -e '[target_name(ex:MAX_LEVEL)]'   ----> Find the files which contain the target_name 
+#
+# Plot:
+# 1. gnuplot: 
+#    (1) set terminal [package_name (ex:pngcairo)]   ----> Choose the package to output the file
+# 2. Display graphs or videos:
+#    (1) eog *png   ----> display png files
+#    (2) ffmpeg -r [Fig_n/s (ex:30)] -f image2 -s [Fig_size (ex:1920x1080)] -i [file_name (ex:Fig_%06d.png)] -vcodec libx264 -crf 25 -pix_fmt yuv420p [file_name (ex:out.mp4]   ----> Make Figures into a vedio
+#        if the Figure size include odd number : ffmpeg -r 1 -i [Fig_name(ex:Fig_%06d.png)] -vcodec libx264 -y -an [file_name(ex:out.mp4)] -vf "pad=ceil(iw/2)*2:ceil(ih/2)*2"
+#    (3) mplayer [file_name (ex:out.mp4)]   ----> Show the video
+#
+# Others:
+# 1. showq   ----> see who are running code on the virtual machine
+#    (1) who   ----> see who are included in the virtual machine
+#    (2) whoami   ----> know who am I
+#    (3) cal   ----> calander
+#    (4) cal 2020   ----> the calander of 2020
+#
+#
+#
+#
+#
+## Gamer: 
+# Note:
+# (1) ssh weinin@140.112.104.92 -p 50150 -Y   ----> Log in the virtual machine (-Y means open 'X11')
+# 
+# Code and Setup:
+# 1. input new code:
+#    (1) git clone [code_website on github]   ----> clone code from github.
+#    (2) git branch   ----> check we are now in which branch.
+#    (3) git brach -a   ----> show all branches (include remote branches).
+#    (4) git checkout --track [branch_name]   ----> switch to the branch.
+# 
+# 2. Submit code:
+#    Note: If we want to use MPI, we should at least apply two computers: #PBS -l nodes=[Computer_n(ex:2)]:ppn=16
+#          And remember to run mpi: mpirun -map_by ppr:4:socket:pe=4 --bind-to core --report-bindings ./gamer 1>>log 2>&1
+#    (1) (bash clean.sh   ----> delete all data)
+#    (2) cp /work1/weinin/submit.job  /work1/weinin/gamer-fork/bin/[ProjDir_name]   ----> prepare the submit file
+#    (3) qsub submit.job   ----> start to run the code
+#    (4) showq   ----> show who is running the code
+#    (5) tail -f log   ----> see present progress
+#    (6) qdel [job_ID]   ----> Force suspension
+#
+#
+# Makefile: 
+# 1. Basic settings:
+#    (1) DSERIAL: only have openMP without MPI. (We can only choose one between this and -DLOAD_BALANCE=HILBERT(with MPI)).
+#    (2) Open the path of NTU-eureka
+#    (3) Use intel compiler 'icpc', instead of g++
+#    (4) DGPU_ARCH = TURING, instead of KEPLER
+#
+# YT: 
+# 1. run python file:
+#    (1) mpirun -np 16 [file_name(ex: plot.py)] -p [prefix] -s [start_idx] -e [end_idx] -d [delta]
+#
+# Input Setup:
+# 1. AMR refinement:
+#    The initial grid number is for level 0. The code would refine the grid depends on Input__Flag_*. MAX_LEVEL is the maximum level we gonna refine. We assume physical variables change continuously which means that it only change from level to level+-1

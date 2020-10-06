@@ -1,0 +1,23 @@
+# 2020/10/2
+  (1) Read CONTRASTING GALAXY FORMATION FROM QUANTUM WAVE DARK MATTER,ψDM, WITHΛCDM,USINGPLANCKANDHUBBLEDATA by Hsi-Yu Schive 2016
+  (2) Goal: Count the number of high red-shift (z~10) galaxies with different mass (or luminosity). (Compare with observation)
+  (3) Three steps: 
+      - Evolve several halos and compare with CDM to see whether the approximation of CDM to psiDM is ok.
+      - Analyze the simulation data from 2016 (with CDM) for high red-shift.
+      - Find a better relation between mass & luminosity of galaxies. (This relation may relate to time).
+  (4) Questions in paper: 
+      - The MF figure shows that most of the galaxies are genuine within 3*10^9 M_solar < M < 1*10^11 M_solar. Can we consider         halos with mass smaller than this? Or it is not important since it is almost impossible when it comes to observation?
+      - The observation data of Cumulative mass function (MF) and Luminosity function (LF) are from HST. But we get different 
+        m_22 constraint. Whether it is because that we use different M-L relation? We use the M-L relation from Bouwens 2015 
+	to transform MF to LF. But the observation data may use different method to transfer LF to MF. 
+      - The other comment is that whether the equation from Bouwens 2015 is base on the setting CDM as the initial hypothesis?
+        If so, it might be the reason why CDM fit quite well in LF while not so clear in MF.
+      - Whether our LF had considered the effect of "Magnification Bias for the HFFs" or not? 
+        A: Observation have done this for us.
+  (5) Note:
+      - It is unclear whether it indicates a faster evolution at z > 8 given the substantial uncertainties in the LF at z=10. 
+        This possible acceleration in evolution has been successfully modeled recently in the context of abundance matching for        CDM by additionally incorporating early stellar evolution (Mason et al. 2015). It may be interesting to apply this             approach in the context of wave DM.
+  (6) Idea:
+      - There are two assumption in the work. First is the transform function from CMD to psiDM, the other is the transform            function from MF to LM (such that we can compare with observation data). So the next step is to see whether the CDM            approximation have the similar result as psiDM simulation at limited scale, and also find whether there are some new           progress in the MF->LF transfer function.
+      - JWST is planned to launch at 2021(may be postponed since Covid19). If in the worst case, we cannot use the data, is            there exist other way to make my job meaningful? (It seems that the paper have done most of the work even with z~10            included, it may not be a good progress if I just follow the similar way with some function and parameters changed). 
+        A: Read The Universe at z > 10: Predictions for JWST from the UNIVERSE M ACHINE DR1 (Peter Behroozi 2020) to see how           they do it and try to apply the methods to FDM.

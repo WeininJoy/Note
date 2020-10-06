@@ -1,0 +1,14 @@
+### 10/1
+## Running Test problems:
+
+# Gaussian Wave: 
+  (1) DMODEL = ELBDM
+  (2) DGPU_ARCH = TURING
+
+# Soliton:
+  (1) Enable: ELBDM, GRAVITY, DLOAD_BALANCE=HILBERT, DGPU, DSUPPORT_HDF5, CXX=$(MPI_PATH)/bin/mpicxx
+  (2) Disable: PARTIBLE, UNSPLIT_GRAVITY, COMOVING, DSERIAL, DOPENMP, CXX=g++
+  (3) Boundary condition: OPT__BC_FLU (periodic), OPT__BC_BOT (isolated)
+
+# Isolated Halo:
+  (1) Change Input__Flag_Rho and make MAX_LEVEL=2 to refine the density profile. 
